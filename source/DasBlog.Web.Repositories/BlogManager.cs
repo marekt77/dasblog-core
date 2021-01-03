@@ -76,6 +76,12 @@ namespace DasBlog.Managers
 											dasBlogSettings.SiteConfiguration.FrontPageCategory);
 		}
 
+		public EntryCollection GetLastestPosts(string acceptLanguageHeader, int maxEntries)
+		{
+			return dataService.GetEntriesForDay(dasBlogSettings.GetContentLookAhead(), dasBlogSettings.GetConfiguredTimeZone(),
+											acceptLanguageHeader, maxEntries,maxEntries, dasBlogSettings.SiteConfiguration.FrontPageCategory);
+		}
+
 		public EntryCollection GetEntriesForPage(int pageIndex, string acceptLanguageHeader)
 		{
 			Predicate<Entry> pred = null;

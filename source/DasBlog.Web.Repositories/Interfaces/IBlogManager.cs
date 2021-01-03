@@ -16,6 +16,8 @@ namespace DasBlog.Managers.Interfaces
 
         EntryCollection GetEntriesForPage(int pageIndex, string acceptLanguageHeader);
 
+		EntryCollection GetLastestPosts(string acceptLanguageHeader, int maxEntries);
+
 		EntrySaveState CreateEntry(Entry entry);
 
 		EntrySaveState UpdateEntry(Entry entry);

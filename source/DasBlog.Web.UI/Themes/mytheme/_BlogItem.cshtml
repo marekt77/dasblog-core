@@ -1,0 +1,49 @@
+﻿@model PostViewModel
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+<div class="single-post  single-post--fullsize">
+    <div class="single-post__title">
+        <h2><post-title-link post=@Model /></h2>
+    </div>
+    <div class="single-post__info">
+        <span><post-created-date post="@Model" /></span>
+    </div>
+    <div class="single-post__content">
+        <post-content post="@Model" />
+    </div>
+    <div class="single-post__footer">
+        <div class="single-post__footer-tags">
+            <h3>Categories:</h3>
+            <div class="single-post__footer-tags-list">
+                <post-categories-list post="@Model">, </post-categories-list>
+            </div>
+        </div>
+        <div class="blog-post__footer-social">
+            <span>Share:</span>
+            <div class="blog-post__footer-social-icons">
+                <post-to-twitter post="@Model">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+                    </svg>
+                </post-to-twitter>
+                <a href="#">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#email"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div dasblog-authorized class="single-post__footer">
+        <div class="single-post__footer-tags">
+            <h3>Admin Menu: </h3>
+            <div class="single-post__footer-tags-list">
+                <post-edit-link post="@Model" /> <post-delete-link post="@Model" />
+            </div>
+        </div>
+    </div>    
+    <partial name="_CommentBlockPartial" model="@Model.Comments" />
+</div>
+<hr />

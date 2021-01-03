@@ -1,0 +1,34 @@
+﻿@model PostViewModel
+
+<div class="blog-post">
+    <div class="blog-post__title">
+        <h2><post-title-link post=@Model /></h2>
+    </div>
+    <div class="blog-post__info">
+        <span><post-created-date post="@Model" /></span>
+    </div>
+    <div class="blog-post__content">
+        <post-content post="@Model" strip-html="true" content-length="150" />
+    </div>
+    <div class="blog-post__footer">
+        <post-title-link class="blog-post__footer-link" post=@Model>
+            Read more
+        </post-title-link>
+        <div class="blog-post__footer-social">
+            <span>Share:</span>
+            <div class="blog-post__footer-social-icons">
+                <post-to-twitter post="@Model">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use>
+                    </svg>
+                </post-to-twitter>
+                <a href="#">
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#email"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</div>

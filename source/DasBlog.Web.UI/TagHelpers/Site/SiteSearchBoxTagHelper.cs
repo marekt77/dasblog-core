@@ -54,6 +54,8 @@ namespace DasBlog.Web.TagHelpers.Layout
 
 			output.TagName = string.Empty;
 			output.Content.Clear();
+			/*
+			 * This is the original Search box...
 			output.Content.AppendHtml($@"
 				<div class='{Class}'>
 					<div class='{InnerClass}'>
@@ -69,7 +71,19 @@ namespace DasBlog.Web.TagHelpers.Layout
 						</div>
 					</div>
 				</div>
-										");
+										");*/
+			output.Content.AppendHtml($@"
+				<div class='search-popup'>
+					<svg class='search-popup__close'>
+						<use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#btn-close'></use>
+					</svg>
+					<div class='container search-popup__container'>
+						<form method='post' action='{actionUrl}'>
+							<input type='text' name='searchText' id='{Id}' size='32' placeholder='Search'>
+						</form>
+					</div>
+				</div>
+			");
 		}
 
 		public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
